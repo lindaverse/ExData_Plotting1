@@ -6,4 +6,6 @@ colnames(data) <- c("date", "time", "globalActivePower", "globalReactivePower", 
                     "subMeteringOne", "subMeteringTwo", "subMeteringThree")
 unlink(temp)
 
+#Create a new variable "dateTime" that contains the date (class: POSIXlt) and time (class: POSIXt) of 
+#meter readings.
 data <- within(data, dateTime <- strptime(paste(date, time, sep=" "), "%d/%m/%Y %H:%M:%S"))
